@@ -1,8 +1,23 @@
+
+/**
+ * Klasa reprezentująca produkt w sklepie internetowym.
+ */
+
+
 public class Product {
-    private int id;
-    private String name;
-    private double price;
-    private boolean isAvailable;
+    private int id;             // Identyfikator produktu
+    private String name;         // Nazwa produktu
+    private double price;        //  Cena produktu
+    private boolean isAvailable;  // Dostępność produktu
+
+    /**
+     * Konstruktor klasy Product.
+     *
+     * @param id          Identyfikator produktu.
+     * @param name        Nazwa produktu.
+     * @param price       Cena produktu.
+     * @param isAvailable Dostępność produktu.
+     */
 
     public Product(int id, String name, double price, boolean isAvailable) {
         this.id = id;
@@ -10,6 +25,13 @@ public class Product {
         this.price = price;
         this.isAvailable = isAvailable;
     }
+    // Gettery i settery
+
+    /**
+     * Zwraca tekstową reprezentację produktu.
+     *
+     * @return Tekstowa reprezentacja produktu.
+     */
 
     public int getId() {
         return id;

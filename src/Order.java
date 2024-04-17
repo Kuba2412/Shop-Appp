@@ -1,17 +1,29 @@
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
+import java.time.ZonedDateTime;
 import java.util.List;
 
-public class Order {
-    private final int orderId;
-    private final List<Product> orderedProducts;
-    private final String firstName;
-    private final String lastName;
-    private final String email;
-    private final LocalDateTime orderTime;
+/**
+ * Klasa reprezentująca zamówienie w sklepie internetowym.
+ */
 
-    public Order(int orderId, List<Product> orderedProducts, String firstName, String lastName, String email, LocalDateTime orderTime) {
+public class Order {
+    private final int orderId;     // Identyfikator zamówienia
+    private final List<Product> orderedProducts;     // Lista zamówionych produktów
+    private final String firstName;     // Imię klienta
+    private final String lastName;     // Nazwisko Klienta
+    private final String email;     // Email klienta
+    private final ZonedDateTime orderTime;     // Data i czas zamówienia
+
+    /**
+     * Konstruktor klasy Order.
+     * @param orderId Identyfikator zamówienia.
+     * @param orderedProducts Lista zamówionych produktów.
+     * @param firstName Imię klienta.
+     * @param lastName Nazwisko klienta.
+     * @param email Email klienta.
+     * @param orderTime Data i czas zamówienia.
+     */
+
+    public Order(int orderId, List<Product> orderedProducts, String firstName, String lastName, String email, ZonedDateTime orderTime) {
         this.orderId = orderId;
         this.orderedProducts = orderedProducts;
         this.firstName = firstName;
@@ -20,6 +32,13 @@ public class Order {
         this.orderTime = orderTime;
     }
 
+    // Metody i gettery
+
+    /**
+     * Oblicza łączną wartość zamówienia.
+     * @return Łączna wartość zamówienia.
+     */
+
     public int getOrderId() {
         return orderId;
     }
@@ -27,7 +46,6 @@ public class Order {
     public List<Product> getOrderedProducts() {
         return orderedProducts;
     }
-
 
     public String getFirstName() {
         return firstName;
@@ -41,9 +59,10 @@ public class Order {
         return email;
     }
 
-    public LocalDateTime getOrderTime() {
+    public ZonedDateTime getOrderTime() {
         return orderTime;
     }
+
     public double getTotalAmount() {
         double total = 0;
         for (Product product : orderedProducts) {
@@ -51,6 +70,11 @@ public class Order {
         }
         return total;
     }
+
+    /**
+     * Zwraca tekstową reprezentację zamówienia.
+     * @return Tekstowa reprezentacja zamówienia.
+     */
 
     @Override
     public String toString() {
@@ -62,5 +86,8 @@ public class Order {
                 ", email='" + email + '\'' +
                 ", orderTime=" + orderTime +
                 '}';
+    }
+
+    public void setTotalAmount(double totalAmount) {
     }
 }
